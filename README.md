@@ -37,4 +37,4 @@ Use `--help` for additional options. The 100-task test IDs, remaining 574-task I
 
 ## Online demo
 
-[Open the interactive demo](https://www.modelscope.cn/studios/san23333/projdemo).
+[Open the interactive demo](https://www.modelscope.cn/studios/san23333/rotabench) — powered by a free CPU Studio on ModelScope.
