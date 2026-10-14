@@ -1,0 +1,165 @@
+[
+  {
+    "group": "Direct/gpt-5.6-sol",
+    "completed": 100,
+    "success": 17,
+    "success_rate": 0.17,
+    "avg_iou": 0.5984379299999998,
+    "avg_steps": 23.85,
+    "prompt_tokens": 28883151,
+    "completion_tokens": 853753,
+    "total_tokens": 29736904,
+    "cost_usd": 170.028345,
+    "source_files": [
+      "result\\formal_50task_increment_v1\\direct\\gpt-5.6-sol\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_50task_increment_v1\\direct_continuation\\gpt-5.6-sol\\no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/gemini-3.6-flash",
+    "completed": 100,
+    "success": 10,
+    "success_rate": 0.1,
+    "avg_iou": 0.6066355800000001,
+    "avg_steps": 24.8,
+    "prompt_tokens": 45392248,
+    "completion_tokens": 4555620,
+    "total_tokens": 49947868,
+    "cost_usd": 245.4132528,
+    "source_files": [
+      "result\\formal_50task_increment_v1\\direct\\gemini-3.6-flash\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_50task_increment_v1\\direct_continuation\\gemini-3.6-flash\\no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/claude-opus-5",
+    "completed": 100,
+    "success": 0,
+    "success_rate": 0.0,
+    "avg_iou": 0.48382789000000004,
+    "avg_steps": 22.12,
+    "prompt_tokens": 17014514,
+    "completion_tokens": 700389,
+    "total_tokens": 17714903,
+    "cost_usd": 102.582295,
+    "source_files": [
+      "result\\formal_50task_increment_v1\\direct\\claude-opus-5\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_50task_increment_v1\\direct_continuation\\claude-opus-5\\no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/gpt-5.6-luna",
+    "completed": 100,
+    "success": 4,
+    "success_rate": 0.04,
+    "avg_iou": 0.5530181999999999,
+    "avg_steps": 24.36,
+    "prompt_tokens": 22630532,
+    "completion_tokens": 1087401,
+    "total_tokens": 23717933,
+    "cost_usd": 5.8309876,
+    "source_files": [
+      "result\\pilot_10task_metric_blind_main_v7\\gpt-5.6-luna\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_100task_metric_blind_main_v7\\gpt-5.6-luna\\remaining90_no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/gpt-5.6-terra",
+    "completed": 100,
+    "success": 8,
+    "success_rate": 0.08,
+    "avg_iou": 0.55443038,
+    "avg_steps": 23.01,
+    "prompt_tokens": 27905743,
+    "completion_tokens": 1062892,
+    "total_tokens": 28968635,
+    "cost_usd": 68.56619,
+    "source_files": [
+      "result\\pilot_10task_metric_blind_main_v7\\gpt-5.6-terra\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_100task_metric_blind_main_v7\\gpt-5.6-terra\\remaining90_no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/qwen3.7-plus",
+    "completed": 100,
+    "success": 0,
+    "success_rate": 0.0,
+    "avg_iou": 0.5037346199999999,
+    "avg_steps": 21.04,
+    "prompt_tokens": 10719193,
+    "completion_tokens": 901152,
+    "total_tokens": 11620345,
+    "cost_usd": 5.7295204,
+    "source_files": [
+      "result\\pilot_10task_metric_blind_main_v7\\qwen3.7-plus\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_100task_metric_blind_main_v7\\qwen3.7-plus\\remaining90_no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/claude-sonnet-5",
+    "completed": 100,
+    "success": 0,
+    "success_rate": 0.0,
+    "avg_iou": 0.4915004300000001,
+    "avg_steps": 19.44,
+    "prompt_tokens": 19556374,
+    "completion_tokens": 722105,
+    "total_tokens": 20278479,
+    "cost_usd": 69.500697,
+    "source_files": [
+      "result\\pilot_10task_metric_blind_main_v7\\claude-sonnet-5\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_100task_metric_blind_main_v7\\claude-sonnet-5\\remaining90_no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Agent/react",
+    "completed": 100,
+    "success": 16,
+    "success_rate": 0.16,
+    "avg_iou": 0.62753543,
+    "avg_steps": 24.83,
+    "prompt_tokens": 28836103,
+    "completion_tokens": 1024921,
+    "total_tokens": 29861024,
+    "cost_usd": 174.928145,
+    "source_files": [
+      "result\\formal_50task_increment_v1\\agent\\gpt-5.6-sol\\react\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_50task_increment_v1\\agent_continuation\\gpt-5.6-sol\\react\\no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Agent/magentic",
+    "completed": 100,
+    "success": 2,
+    "success_rate": 0.02,
+    "avg_iou": 0.5292648399999998,
+    "avg_steps": 16.54,
+    "prompt_tokens": 49032175,
+    "completion_tokens": 2208867,
+    "total_tokens": 51241042,
+    "cost_usd": 311.426885,
+    "source_files": [
+      "result\\formal_50task_increment_v1\\agent\\gpt-5.6-sol\\magentic\\no_iou\\reports\\model_raw.csv",
+      "result\\formal_50task_increment_v1\\agent_continuation\\gpt-5.6-sol\\magentic\\no_iou\\reports\\model_raw.csv"
+    ]
+  },
+  {
+    "group": "Direct/gpt-6-astra",
+    "completed": 100,
+    "success": 10,
+    "success_rate": 0.10,
+    "avg_iou": 0.578,
+    "avg_steps": 23.29,
+    "source_files": ["results/result/formal_100task_extensions_20260918/gpt-6-astra/model_raw.csv"]
+  },
+  {
+    "group": "Direct/grok-4.5",
+    "completed": 10,
+    "success": 0,
+    "success_rate": 0.0,
+    "avg_iou": 0.471,
+    "avg_steps": 22.80,
+    "split": "pilot10",
+    "source_files": ["results/result/pilot_10task_metric_blind_main_v7/grok-4.5/no_iou/reports/model_raw.csv"]
+  }
+]

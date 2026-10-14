@@ -1,0 +1,7 @@
+numpy==1.26.4
+opencv-python-headless==4.11.0.86
+numba==0.64.0
+httpx>=0.27,<1
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+latex2mathml>=3.81,<4

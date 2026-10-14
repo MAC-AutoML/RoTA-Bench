@@ -1,0 +1,145 @@
+{
+  "benchmark_version": "metric_blind_main_v7",
+  "frozen_at": "2026-08-03",
+  "status": "frozen_pre_run",
+  "dataset": {
+    "canonical_tasks_file": "artifacts/ablation/holes_20260316_154921/attempts_0/tasks/tasks.jsonl",
+    "canonical_tasks_sha256": "6927d49e1a7d6e6283085fc3e962dd2b2f2afdb0e448c6bc6a7b32d9a7988a72",
+    "test_ids_file": "dataset_splits/hybrid_beam256_exact30_proportional_v2/test.json",
+    "test_ids_sha256": "ef5a4de477b95d53eb530a2c4e1a77dd131d10004f16422429ea226a605c8945",
+    "train_ids_file": "dataset_splits/hybrid_beam256_exact30_proportional_v2/train.json",
+    "test_task_count": 100,
+    "difficulty_reference": {
+      "definition": "minimum valid step count from Beam-256 and exact fixed-30-degree pose BFS; best known, not a global optimality proof",
+      "implementations": [
+        "guided_iou_beam.py",
+        "bfs_pose_oracle.py"
+      ],
+      "allowed_angles_degrees": [
+        30,
+        10,
+        5,
+        1
+      ],
+      "success_iou": 0.9,
+      "results": "dataset_splits/hybrid_beam256_exact30_v1/hybrid_reference_results.jsonl",
+      "results_sha256": "066d4aaef67f65e5fa48c5189e52023a76f033d1aef8f6c5f441d3bf7f7c8ddf",
+      "split_manifest": "dataset_splits/hybrid_beam256_exact30_proportional_v2/manifest.json",
+      "scope": "offline difficulty oracle only; never exposed to the model"
+    }
+  },
+  "models_file": "model_list.json",
+  "model_count": 8,
+  "protocol": {
+    "prompt_protocol": "v2",
+    "metric_feedback_mode": "none",
+    "hide_iou_feedback": true,
+    "metric_guidance": "The task ends automatically when the requirement is met. If it continues, the current result has not yet met the requirement.",
+    "system_prompt": "You are playing a deterministic turn-based 3D-to-2D alignment game. Rotate only the CURRENT object so its projection matches TARGET within the step budget. Each observation provides images and the current task feedback. Each panel is one image ordered left-to-right as TARGET projection | CURRENT oblique view | CURRENT projection. The oblique view is an auxiliary 3D pose cue; compare TARGET with CURRENT projection for alignment. Rotations use observer/camera coordinates: PITCH_POS=pitch upward, PITCH_NEG=pitch downward, YAW_POS=turn toward observer right, YAW_NEG=turn toward observer left, ROLL_POS=clockwise in the image plane, ROLL_NEG=counter-clockwise. Allowed action tokens: PITCH_POS, PITCH_NEG, YAW_POS, YAW_NEG, ROLL_POS, ROLL_NEG, STOP. Allowed angles: 30, 10, 5, 1. History is chronological. Each historical panel is the state before the action written immediately beside it. The environment ends automatically when the requirement is met. Use STOP only when no actionable improvement idea remains; do not use STOP merely because the silhouettes appear aligned. Return exactly one JSON object and no extra text: {\"cot\":\"brief current-step reasoning\",\"type\":\"TOKEN\",\"angle\":ANGLE}. The type and angle must come from the allowed sets.",
+    "turn_prompt_template": "Current turn: {step}/{step_limit}.\nUsed steps: {used_steps}.\nRemaining steps: {remaining_steps}.\nThe task ends automatically when the requirement is met. If it continues, the current result has not yet met the requirement.\n",
+    "history_message_template": "Historical state {history_index}; action after this state: step={step} action={action} angle={angle} cot={brief_reason}",
+    "current_state_label": "Current state to act on now:",
+    "image_mode": "panel",
+    "panel_order": [
+      "TARGET projection",
+      "CURRENT oblique view",
+      "CURRENT projection"
+    ],
+    "history_window": -1,
+    "include_history_cot": true,
+    "allowed_actions": [
+      "PITCH_POS",
+      "PITCH_NEG",
+      "YAW_POS",
+      "YAW_NEG",
+      "ROLL_POS",
+      "ROLL_NEG",
+      "STOP"
+    ],
+    "allowed_angles": [
+      30,
+      10,
+      5,
+      1
+    ],
+    "stop_semantics": "STOP means no remaining actionable improvement idea; success is automatic and judged only by the environment.",
+    "model_visible_forbidden_content": [
+      "IoU or spelling variants",
+      "the numeric success threshold or spelling variants",
+      "score",
+      "threshold",
+      "metric",
+      "current, best, delta, progress, comparison, or remaining-gap metric values"
+    ]
+  },
+  "run": {
+    "max_steps": 48,
+    "step_limit_multiplier": 3.0,
+    "stagnation_patience": 12,
+    "min_best_iou_gain": 0.0,
+    "test_early_stop": {
+      "enabled": true,
+      "patience": 12,
+      "min_best_iou_gain": 0.0,
+      "description": "测试连续12步无IoU提升时停止当前task；成功或step_cap仍按原协议停止"
+    },
+    "evaluation_queue": "global_sqlite_claim_queue",
+    "temperature": 0.0,
+    "api_seed": 42,
+    "api_seed_semantics": "best effort; sent on every direct API request, but provider determinism is not guaranteed",
+    "max_tokens": 8192,
+    "intermediate_max_tokens": 2048,
+    "final_report_max_tokens": 8192,
+    "token_budget_policy": "Training rollouts and intermediate tests use 2048; final Base and best-LoRA report evaluations explicitly use 8192. Prompt limit 50000 and thinking budget 1024 are unchanged.",
+    "stream": false,
+    "response_format": "json",
+    "api_orchestration": "direct",
+    "api_retries": 2,
+    "api_retry_backoff_seconds": 1.6,
+    "timeout_seconds": 1500,
+    "task_workers": 2,
+    "render_workers": 1,
+    "resume": true
+  },
+  "renderer": {
+    "entrypoint": "benchmark_core.render_views_fast",
+    "backend_policy": "The shared renderer retains CPU fallback for diagnostics, but formal LLM, Human Web, and Beam entrypoints require CUDA and fail before evaluation if CUDA is unavailable. Record the actual backend for every run.",
+    "eval_size": 320,
+    "api_display_width": 320,
+    "api_display_height": 320,
+    "projection_scale_reference": 64.0,
+    "svg_max_points_per_icon": 90000,
+    "cuda_point_batch_size": 100000,
+    "beam_candidate_batch_size": 256,
+    "beam_width": 256,
+    "beam_score_chunk_size": 4096,
+    "accelerated_mask_fill": "solid geometry disk splat",
+    "python_fallback_display_fill_holes": false,
+    "python_fallback_evaluation_fill_holes": true,
+    "morphological_close": "OpenCV MORPH_CLOSE, 3x3 ellipse, 1 iteration",
+    "oblique_blur": "OpenCV GaussianBlur 3x3, 2 passes",
+    "panel_separator_pixels": 6
+  },
+  "reporting": {
+    "iou_decimal_places": 3,
+    "record_full_precision_in_raw_artifacts": true,
+    "required_environment_metadata": [
+      "renderer backend",
+      "platform",
+      "Python version",
+      "NumPy version",
+      "OpenCV version",
+      "Torch version",
+      "Torch CUDA version",
+      "CUDA availability",
+      "GPU name",
+      "render and benchmark configuration"
+    ]
+  },
+  "execution_order": [
+    "Run all eight models on the same frozen 100-task test set using only this metric-blind protocol.",
+    "Rank models using the frozen primary analysis; do not inspect auxiliary IoU runs before choosing the strongest model.",
+    "After the main benchmark is complete, run only the strongest model with visible IoU as an auxiliary analysis on the same 100 tasks."
+  ],
+  "paid_api_gate": "No paid API call is authorized by this configuration file. Cost estimation and explicit user confirmation are still required before execution."
+}

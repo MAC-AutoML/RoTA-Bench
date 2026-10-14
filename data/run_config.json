@@ -1,0 +1,22 @@
+{
+  "theta": 15,
+  "T_max": 16,
+  "tau_success": 0.9,
+  "random_seed": 42,
+  "eval_size": 320,
+  "display_width": 320,
+  "display_height": 320,
+  "icon_categories": [
+    "all"
+  ],
+  "icon_min_connected_ratio": 0.985,
+  "icon_min_circle_iou": 0.28,
+  "icon_min_bbox_fill": 0.08,
+  "icon_max_aspect_ratio": 2.2,
+  "icon_min_pixel_points": 2000,
+  "model_name": "simulated_mllm_v1",
+  "sample_count": 2,
+  "icon_pool_limit": -1,
+  "surface_hole_attempts": 30,
+  "render_layer_batch_size": 5
+}

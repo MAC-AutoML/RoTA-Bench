@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+result/
+logs/
+*.log
+.ms_upload_cache
+website/build_paper_data.py
+website/build_public_paths.py
+website/assets/rotabench-anonymous-paper.pdf

@@ -1,0 +1,126 @@
+{
+  "protocol": "metric_blind_main_v7",
+  "task_ids": [
+    "single_00001",
+    "single_00006",
+    "single_00016",
+    "single_00025",
+    "single_00027",
+    "single_00033",
+    "single_00034",
+    "single_00039",
+    "single_00064",
+    "single_00070"
+  ],
+  "models": [
+    {
+      "model": "claude-opus-5",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.5321,
+      "mean_steps": 23.6,
+      "prompt_tokens": 1535470,
+      "completion_tokens": 46039,
+      "total_tokens": 1581509,
+      "estimated_cost_usd": 8.8283
+    },
+    {
+      "model": "claude-sonnet-5",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.5295,
+      "mean_steps": 17.2,
+      "prompt_tokens": 2407344,
+      "completion_tokens": 16965,
+      "total_tokens": 2424309,
+      "estimated_cost_usd": 7.4765
+    },
+    {
+      "model": "gemini-3.6-flash",
+      "tasks": 10,
+      "successes": 1,
+      "success_rate_percent": 10.0,
+      "mean_final_iou": 0.5673,
+      "mean_steps": 20.5,
+      "prompt_tokens": 2947469,
+      "completion_tokens": 397570,
+      "total_tokens": 3345039,
+      "estimated_cost_usd": 17.7671
+    },
+    {
+      "model": "gpt-5.6-luna",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.5594,
+      "mean_steps": 24.5,
+      "prompt_tokens": 2634559,
+      "completion_tokens": 90159,
+      "total_tokens": 2724718,
+      "estimated_cost_usd": 0.6351
+    },
+    {
+      "model": "gpt-5.6-sol",
+      "tasks": 10,
+      "successes": 4,
+      "success_rate_percent": 40.0,
+      "mean_final_iou": 0.7527,
+      "mean_steps": 30.8,
+      "prompt_tokens": 3805274,
+      "completion_tokens": 106059,
+      "total_tokens": 3911333,
+      "estimated_cost_usd": 22.2081
+    },
+    {
+      "model": "gpt-5.6-terra",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.5156,
+      "mean_steps": 25.3,
+      "prompt_tokens": 2848257,
+      "completion_tokens": 92478,
+      "total_tokens": 2940735,
+      "estimated_cost_usd": 6.8062
+    },
+    {
+      "model": "gpt-6-astra",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.5652,
+      "mean_steps": 24.5,
+      "prompt_tokens": 4987289,
+      "completion_tokens": 185616,
+      "total_tokens": 5172905,
+      "estimated_cost_usd": 59.1537
+    },
+    {
+      "model": "grok-4.5",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.4709,
+      "mean_steps": 22.8,
+      "prompt_tokens": 330422,
+      "completion_tokens": 338891,
+      "total_tokens": 670273,
+      "estimated_cost_usd": 2.6942
+    },
+    {
+      "model": "qwen3.7-plus",
+      "tasks": 10,
+      "successes": 0,
+      "success_rate_percent": 0.0,
+      "mean_final_iou": 0.4924,
+      "mean_steps": 21.5,
+      "prompt_tokens": 1088417,
+      "completion_tokens": 111163,
+      "total_tokens": 1199580,
+      "estimated_cost_usd": 0.6132
+    }
+  ],
+  "known_estimated_cost_usd": 126.1824
+}

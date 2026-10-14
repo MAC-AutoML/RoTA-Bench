@@ -1,0 +1,38 @@
+{
+  "updated_at": "2026-07-29",
+  "purpose": "Official multimodal benchmark model list",
+  "models": [
+    {
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-5.6-terra"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "gpt-5.6-luna"
+    },
+    {
+      "provider": "Anthropic",
+      "model": "claude-sonnet-5"
+    },
+    {
+      "provider": "Anthropic",
+      "model": "claude-opus-5"
+    },
+    {
+      "provider": "Google",
+      "model": "gemini-3.6-flash"
+    },
+    {
+      "provider": "xAI",
+      "model": "grok-4.5"
+    },
+    {
+      "provider": "Qwen",
+      "model": "qwen3.7-plus"
+    }
+  ]
+}
