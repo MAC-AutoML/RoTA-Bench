@@ -54,9 +54,53 @@ python src/step_02_test_models.py --backend gemini_api --config data/run_config.
 
 To regenerate tasks from the original 2D icons, install the additional `cairosvg` dependency and run `src/step_01_generate_data.py`. The script downloads the upstream [game-icons](https://github.com/game-icons/icons) SVG repository when `data_sources/game-icons` is absent, rasterizes each SVG into deterministic 2D points, applies the icon-quality filters, constructs the spherical 3D geometry, renders the target and initial views, and writes task JSONL records. The game-icons assets remain under their upstream Creative Commons/public-domain licenses; review `data_sources/game-icons/license.txt` and the upstream attribution requirements before redistributing them.
 
-```bash
-python src/step_01_generate_data.py --root . --config data/run_config.json --sample-count 1 --save-target-images --save-init-images --save-init-oblique-images --no-resume
-```
+### Reproducible pipeline, step by step
+
+The following commands run the public pipeline without changing the frozen `data/tasks_674.jsonl` or `data/test_100.json` files. Generation outputs are written under `tasks/`, `data/single/`, `reports/`, and `logs/`.
+
+1. Install the runtime dependencies. For CUDA rendering, install a CUDA-enabled PyTorch build compatible with your driver separately.
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Obtain the source icons. Step 1 performs this automatically by cloning `game-icons/icons` into `data_sources/game-icons` if that directory is absent. You may also clone it explicitly:
+
+   ```bash
+   git clone --depth 1 https://github.com/game-icons/icons data_sources/game-icons
+   ```
+
+   The upstream SVG files retain their original licenses and attribution requirements; they are not part of this repository.
+
+3. Convert SVG icons to deterministic 2D points and generate tasks. This command also constructs the spherical 3D geometry, renders target/current/oblique views, and writes `tasks/tasks.jsonl`.
+
+   ```bash
+   python src/step_01_generate_data.py --root . --config data/run_config.json --sample-count 1 --save-target-images --save-init-images --save-init-oblique-images --no-resume
+   ```
+
+   The generated task contains `icon_points` (the sampled 2D shape), pose metadata, and the parameters used to construct the 3D object. Generated images are saved under `data/single/target/`, `data/single/init/`, and `data/single/init_oblique/`. Use a separate generation config or output checkout when producing new data at scale; do not overwrite the frozen release files.
+
+4. Inspect the generated task and confirm that the expected sample exists:
+
+   ```bash
+   python -c "import json; from pathlib import Path; rows=[json.loads(x) for x in Path('tasks/tasks.jsonl').open(encoding='utf-8') if x.strip()]; print(len(rows), rows[0]['sample_id'], len(rows[0]['icon_points']))"
+   ```
+
+5. Create a split file for the generated task. For a one-task smoke test, the split must list the generated `sample_id` explicitly:
+
+   ```bash
+   python -c "import json; from pathlib import Path; sid=next(json.loads(x)['sample_id'] for x in Path('tasks/tasks.jsonl').open(encoding='utf-8') if x.strip()); Path('tasks/smoke_split.json').write_text(json.dumps({'split_name':'smoke','count':1,'sample_ids':[sid]},indent=2)+'\\n',encoding='utf-8')"
+   ```
+
+6. Run the local simulated evaluator on the generated task. This validates the complete generated-task → renderer → closed-loop evaluator path without an API key:
+
+   ```bash
+   python src/step_02_test_models.py --root . --config data/run_config.json --tasks-file tasks/tasks.jsonl --split-file tasks/smoke_split.json --backend simulated --max-tasks 1 --max-step-cap 48 --task-workers 1 --render-workers 1 --output-dir result/smoke_generated --no-resume
+   ```
+
+   The report is written to `result/smoke_generated/reports/model_raw.csv`; per-step frames and the trajectory are under `result/smoke_generated/logs/`.
+
+7. For an API-backed evaluation, keep the same generated task and split paths, set `OPENAI_API_KEY`, and replace `--backend simulated` with `--backend gemini_api`, supplying `--base-url`, `--api-model`, and the required formal protocol options. The frozen benchmark command below remains the recommended command for official comparisons.
 
 Run Beam-256 reference search:
 
