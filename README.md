@@ -74,11 +74,17 @@ The following commands run the public pipeline without changing the frozen `data
 
 3. Convert SVG icons to deterministic 2D points and generate tasks. This command also constructs the spherical 3D geometry, renders target/current/oblique views, and writes `tasks/tasks.jsonl`.
 
+   For a one-task smoke test, first make a copy of the run configuration and limit the icon pool. The default `icon_pool_limit: -1` scans the full upstream icon repository and is intended for full regeneration; it can require substantial disk space even when `--sample-count 1` is used:
+
    ```bash
-   python src/step_01_generate_data.py --root . --config data/run_config.json --sample-count 1 --save-target-images --save-init-images --save-init-oblique-images --no-resume
+   python -c "import json; from pathlib import Path; p=Path('data/run_config.json'); q=Path('data/run_config_smoke.json'); cfg=json.loads(p.read_text(encoding='utf-8')); cfg.update({'icon_pool_limit':1,'sample_count':1}); q.write_text(json.dumps(cfg, indent=2)+'\n', encoding='utf-8')"
    ```
 
-   The generated task contains `icon_points` (the sampled 2D shape), pose metadata, and the parameters used to construct the 3D object. Generated images are saved under `data/single/target/`, `data/single/init/`, and `data/single/init_oblique/`. Use a separate generation config or output checkout when producing new data at scale; do not overwrite the frozen release files.
+   ```bash
+   python src/step_01_generate_data.py --root . --config data/run_config_smoke.json --sample-count 1 --save-init-images --save-init-oblique-images --no-resume
+   ```
+
+   Target images are saved by default (use `--no-save-target-images` only when they are not needed). The generated task contains `icon_points` (the sampled 2D shape), pose metadata, and the parameters used to construct the 3D object. Generated images are saved under `data/single/target/`, `data/single/init/`, and `data/single/init_oblique/`. Use a separate generation config or output checkout when producing new data at scale; do not overwrite the frozen release files.
 
 4. Inspect the generated task and confirm that the expected sample exists:
 
