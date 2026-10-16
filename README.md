@@ -10,6 +10,8 @@
 
 Code and the fixed 674-task dataset accompanying **RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment**.
 
+The public release contains 674 tasks. Two tasks (`single_00345` and `single_00384`) were removed from the original 676-task collection because their icons could not be redistributed due to copyright restrictions.
+
 **Paper:** [RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1)<br>
 **Authors:** Qingchuan Ma, Yuexiao Ma, Xiang Meng, Yixuan Zou, Tianyu Xie, Wang Chen, Yuhui Zeng, Yuhang Wu, Xiawu Zheng, Rongrong Ji.
 
@@ -42,7 +44,7 @@ pip install -r requirements.txt
 
 Install a CUDA-enabled PyTorch build compatible with your NVIDIA driver from https://pytorch.org/get-started/locally/. Formal evaluation and Beam search require CUDA.
 
-Set `PROJECTION_API_KEY` to your own API key. In Bash use `export PROJECTION_API_KEY="your-key"`; in PowerShell use `$env:PROJECTION_API_KEY="your-key"`.
+Set `OPENAI_API_KEY` to your API key. In Bash use `export OPENAI_API_KEY="your-key"`; in PowerShell use `$env:OPENAI_API_KEY="your-key"`.
 
 Run the frozen 100-task evaluation using an OpenAI-compatible endpoint:
 
