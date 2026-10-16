@@ -10,13 +10,13 @@
 
 <p align="center"><a href="https://www.modelscope.cn/studios/san2333333/rotabench-anon?mode=full&app_path=%2Fportal"><strong>▶ Open the interactive demo</strong></a></p>
 
-<p align="center"><a href="https://github.com/MAC-AutoML/RoTA-Bench"><strong>⌘ Browse the code</strong></a> · <a href="https://arxiv.org/abs/2610.17665v1"><strong>Read the paper</strong></a></p>
+<p align="center"><a href="https://github.com/MAC-AutoML/RoTA-Bench"><strong>⌘ Browse the code</strong></a> · <a href="https://arxiv.org/abs/2610.17665v1"><strong>Read the paper</strong></a> · <a href="https://huggingface.co/papers/2610.17665"><strong>Hugging Face Papers</strong></a></p>
 
 Code and the fixed 674-task dataset accompanying **RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment**.
 
 The public release contains 674 tasks. Two tasks (`single_00345` and `single_00384`) were removed from the original 676-task collection because their icons could not be redistributed due to copyright restrictions.
 
-**Paper:** [RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1)<br>
+**Paper:** [RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1) · [Hugging Face Papers](https://huggingface.co/papers/2610.17665)<br>
 **Authors:** Qingchuan Ma, Yuexiao Ma, Xiang Meng, Yixuan Zou, Tianyu Xie, Wang Chen, Yuhui Zeng, Yuhang Wu, Xiawu Zheng, Rongrong Ji.
 
 ## Benchmark Overview
@@ -150,13 +150,13 @@ The accompanying website provides interactive leaderboard tables and cost–perf
 
 <p align="center"><a href="https://www.modelscope.cn/studios/san2333333/rotabench-anon?mode=full&app_path=%2Fportal"><strong>▶ 打开交互演示</strong></a></p>
 
-<p align="center"><a href="https://github.com/MAC-AutoML/RoTA-Bench"><strong>⌘ 浏览代码</strong></a> · <a href="https://arxiv.org/abs/2610.17665v1"><strong>阅读论文</strong></a></p>
+<p align="center"><a href="https://github.com/MAC-AutoML/RoTA-Bench"><strong>⌘ 浏览代码</strong></a> · <a href="https://arxiv.org/abs/2610.17665v1"><strong>阅读论文</strong></a> · <a href="https://huggingface.co/papers/2610.17665"><strong>Hugging Face Papers</strong></a></p>
 
 **RoTA-Bench：通过交互式投影对齐评估 3D 空间推理**的代码与固定 674-task 数据集。
 
 公开版本包含 674 个任务。由于版权限制，原始 676 个任务中的两个图标无法再分发，因此移除了对应任务（`single_00345` 和 `single_00384`）。
 
-**论文：**[RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1)<br>
+**论文：**[RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1) · [Hugging Face Papers](https://huggingface.co/papers/2610.17665)<br>
 **作者：**Qingchuan Ma、Yuexiao Ma、Xiang Meng、Yixuan Zou、Tianyu Xie、Wang Chen、Yuhui Zeng、Yuhang Wu、Xiawu Zheng、Rongrong Ji。
 
 ## 基准概览
