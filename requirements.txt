@@ -3,3 +3,4 @@ opencv-python-headless==4.13.0.92
 numba==0.64.0
 tqdm==4.67.3
 Pillow==11.3.0
+cairosvg==2.8.2
