@@ -17,6 +17,16 @@ The public release contains 674 tasks. Two tasks (`single_00345` and `single_003
 **Paper:** [RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1) · [Hugging Face Papers](https://huggingface.co/papers/2610.17665)<br>
 **Authors:** Qingchuan Ma, Yuexiao Ma, Xiang Meng, Yixuan Zou, Tianyu Xie, Wang Chen, Yuhui Zeng, Yuhang Wu, Xiawu Zheng, Rongrong Ji.
 
+## Dataset on Hugging Face
+
+The fixed 674-task dataset is also available on [Hugging Face Datasets](https://huggingface.co/datasets/QingchuanMa/RoTA-Bench) and can be loaded with 🤗 Datasets:
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("QingchuanMa/RoTA-Bench")
+```
+
 ## Benchmark Overview
 
 RoTA-Bench evaluates an agent's ability to align a target 2D projection through a sequence of discrete 3D rotations. Each task provides a target silhouette, an auxiliary view of the object, and its current projection. The agent selects from a predefined set of rotation actions and continues until the projected contour aligns with the target.

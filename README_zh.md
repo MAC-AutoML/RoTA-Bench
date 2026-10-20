@@ -17,6 +17,16 @@
 **论文：**[RoTA-Bench: Evaluating 3D Spatial Reasoning through Interactive Projection Alignment](https://arxiv.org/abs/2610.17665v1) · [Hugging Face Papers](https://huggingface.co/papers/2610.17665)<br>
 **作者：**Qingchuan Ma、Yuexiao Ma、Xiang Meng、Yixuan Zou、Tianyu Xie、Wang Chen、Yuhui Zeng、Yuhang Wu、Xiawu Zheng、Rongrong Ji。
 
+## Hugging Face 数据集
+
+固定的 674-task 数据集也托管在 [Hugging Face Datasets](https://huggingface.co/datasets/QingchuanMa/RoTA-Bench)，可使用 🤗 Datasets 直接加载：
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("QingchuanMa/RoTA-Bench")
+```
+
 ## 基准概览
 
 RoTA-Bench 评估智能体通过一系列离散 3D 旋转来对齐目标 2D 投影的能力。每个任务提供目标轮廓、物体的辅助视图和当前投影。智能体从预定义的旋转动作中进行选择，并持续操作，直到投影轮廓与目标对齐。
