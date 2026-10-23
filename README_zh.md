@@ -2,11 +2,11 @@
 
 <p align="center"><a href="README.md">English</a> · <a href="README_zh.md">简体中文</a></p>
 
-<p align="center">
-  <a href="https://www.modelscope.cn/studios/san2333333/rotabench-anon?mode=full&app_path=%2Fportal"><img src="website/assets/demo-home.png" alt="RoTA-Bench 交互演示" width="920"></a>
-</p>
+<p align="center"><video src="assets/rota-bench-arcade-EN-60fps-1080p-v8.mp4" controls width="920"></video></p>
 
 <p align="center"><a href="https://www.modelscope.cn/studios/san2333333/rotabench-anon?mode=full&app_path=%2Fportal"><strong>▶ 打开交互演示</strong></a></p>
+
+<p align="center"><a href="assets/rota-bench-arcade-EN-60fps-1080p-v8.mp4"><strong>🎬 观看 RoTA-Bench 宣传视频</strong></a></p>
 
 <p align="center"><a href="https://github.com/MAC-AutoML/RoTA-Bench"><strong>⌘ 浏览代码</strong></a> · <a href="https://arxiv.org/abs/2610.17665v1"><strong>阅读论文</strong></a> · <a href="https://huggingface.co/papers/2610.17665"><strong>Hugging Face Papers</strong></a></p>
 
